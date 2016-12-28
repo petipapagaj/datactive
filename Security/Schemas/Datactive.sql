@@ -1,0 +1,3 @@
+CREATE SCHEMA [Datactive]
+AUTHORIZATION [dbo]
+GO
