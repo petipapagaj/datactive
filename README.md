@@ -6,6 +6,9 @@ Provide help in release process to make sure static data has been released as it
 Generating data version which is a snapshot of the actual state of the database
 Able to show if there is any missing table objects in database
 
+# Why the DATActive?
+Datactive is able to help when several identical databases have across the system with static data.  
+
 # Usage
 EXEC Datactive.HashMatch [ [@version = ] { value }, [@showObjects =]  { 1 | 0 }]
  
