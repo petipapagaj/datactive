@@ -14,9 +14,9 @@
 EXEC Datactive.HashMatch [ [@version = ] { value }, [@showObjects =]  { 1 | 0 }]
 ```
 
-Parameter description:
-@version: specific version for previously created data versions. Latest version will be picked up from table dbo.DataVersion if no specific version attached as parameter
-@showObjects: By default Datactive only return the status code of the execution. Making @showobjects parameter true will force to return the object names where discrepancy found
+### Parameter description:
+* @version: specific version for previously created data versions. Latest version will be picked up from table dbo.DataVersion if no specific version attached as parameter
+* @showObjects: By default Datactive only return the status code of the execution. Making @showobjects parameter true will force to return the object names where discrepancy found
 
 # Example
 ``` 
