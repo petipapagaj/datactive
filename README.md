@@ -8,6 +8,7 @@
 
 # Why the DATActive?
 * Datactive is able to help when several identical databases have across the system with static data.  
+* Note that works with SQL Server only
 
 # Usage
 ```
