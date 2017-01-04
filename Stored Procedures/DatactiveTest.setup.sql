@@ -8,13 +8,10 @@ SET NOCOUNT ON
 
 DECLARE @version VARCHAR(5) = '0.0.1'
 
-EXEC Datactive.CreateDataVersion @version = @version
+EXEC Datactive.CreateDataVersion @version = @version, @sha1 = '684sdfg684268dfa6846'
 
 
 RETURN 0
 END
-
-
-
 
 GO

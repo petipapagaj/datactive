@@ -11,20 +11,22 @@ SET NOCOUNT ON
 
 DECLARE @ret INT 
 DECLARE @version VARCHAR(4) = '0.1'
-
-EXEC @ret = Datactive.CreateDataVersion @version = @version
+DECLARE @sha1 VARCHAR(128) = '68486f4gh6f8684fgh'
+EXEC @ret = Datactive.CreateDataVersion @version = @version, @sha1 = @sha1 
 
 EXEC tSQLt.AssertEquals @Expected = 0, -- sql_variant
     @Actual = @ret, -- sql_variant
     @Message = N'Creation of new data version failed' -- nvarchar(max)
 
-EXEC @ret = Datactive.CreateDataVersion @version = @version
+EXEC @ret = Datactive.CreateDataVersion @version = NULL, @sha1 = NULL
 
 EXEC tSQLt.AssertEquals @Expected = 1, -- sql_variant
     @Actual = @ret, -- sql_variant
-    @Message = N'Should be add unique data version' -- nvarchar(max)
+    @Message = N'Parameter null validation failed' -- nvarchar(max)
 
 END;
+
+
 
 
 

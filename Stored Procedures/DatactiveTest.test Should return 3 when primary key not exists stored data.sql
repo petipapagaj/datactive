@@ -26,7 +26,7 @@ AND EXISTS ( SELECT 1 FROM sys.partitions AS p WHERE tc.TABLE_NAME = OBJECT_NAME
 SET @sql = 'ALTER TABLE dbo.' + @table + ' DROP CONSTRAINT ' + @cons
 EXEC (@sql)
 
-EXEC @ret = Datactive.CreateDataVersion @version = @version -- varchar(10)
+EXEC @ret = Datactive.CreateDataVersion @version = @version, @sha1 = '684asdf68168946as' -- varchar(10)
 
 EXEC tSQLt.AssertEquals @Expected = 0, -- sql_variant
     @Actual = @ret, -- sql_variant
@@ -44,6 +44,7 @@ EXEC tSQLt.AssertEquals @Expected = 3, -- sql_variant
 
   
 END;
+
 
 
 

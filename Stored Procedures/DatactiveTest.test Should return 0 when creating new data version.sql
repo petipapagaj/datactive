@@ -13,7 +13,7 @@ DECLARE @ret INT
 DECLARE @actual INT
 DECLARE @version VARCHAR(5) = '0.1'
 
-EXEC @ret = Datactive.CreateDataVersion @version = @version
+EXEC @ret = Datactive.CreateDataVersion @version = @version, @sha1 = '68486f4gh6f8684fgh'
 
 EXEC tSQLt.AssertEquals @Expected = 0, -- sql_variant
     @Actual = @ret, -- sql_variant
@@ -26,6 +26,7 @@ EXEC tSQLt.AssertEquals @Expected = 1, -- sql_variant
     @Message = N'Data not in the table' -- nvarchar(max)
 
 END;
+
 
 
 
