@@ -4,7 +4,7 @@ SET ANSI_NULLS ON
 GO
 --  Comments here are associated with the test.
 --  For test case examples, see: http://tsqlt.org/user-guide/tsqlt-tutorial/
-CREATE PROCEDURE [DatactiveTest].[test Should return 4 when data is different in database]
+CREATE PROCEDURE [DatactiveTest].[test Should return 104 when data is different in database]
 AS
 BEGIN
 SET NOCOUNT ON
@@ -35,12 +35,13 @@ EXEC (@sql)
 
 EXEC @ret = Datactive.HashMatch
 
-EXEC tSQLt.AssertEquals @Expected = 4, -- sql_variant
+EXEC tSQLt.AssertEquals @Expected = 104, -- sql_variant
     @Actual = @ret, -- sql_variant
     @Message = N'Data validation failed' -- nvarchar(max)
 
 
 END
+
 
 
 

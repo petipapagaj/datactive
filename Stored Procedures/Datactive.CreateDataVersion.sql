@@ -9,17 +9,20 @@ SET NOCOUNT ON
 
 BEGIN
 
+DECLARE @ret INT 
 
 IF @version IS NULL OR @sha1 IS NULL
-	RETURN 1 --invalid parameter
+	RETURN -1 --invalid parameter
 
 IF EXISTS (SELECT 1 FROM Datactive.DataVersion AS dv WHERE dv.Version = @version OR dv.GitReference = @sha1)
-	RETURN 88 --version already created
+	RETURN 188 --version already created
 
 DECLARE @xml XML
 
-EXEC Datactive.GenerateXML @data = @xml OUT
+EXEC @ret = Datactive.GenerateXML @data = @xml OUT
 
+IF @ret <> 0
+	RETURN @ret
 
 INSERT INTO Datactive.DataVersion ( Version, GitReference, Created, Data )
 VALUES (@version, @sha1, GETUTCDATE(), @xml)
@@ -27,5 +30,6 @@ VALUES (@version, @sha1, GETUTCDATE(), @xml)
 RETURN 0
 
 END
+
 
 GO

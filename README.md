@@ -63,3 +63,14 @@ SELECT * FROM Datactive.DataVersion AS dv
   …
 </tables>
 ```
+
+# Return codes
+Range is [101-199]
+
+*0	OK
+*-1:	Invalid parameter
+*151:	Internal error
+*188:	Data version already created (bold version or git sha1)
+*102:	Table mismatch
+*103:	PK mismatch
+*104:	Data mismatch

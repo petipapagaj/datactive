@@ -4,7 +4,7 @@ SET ANSI_NULLS ON
 GO
 --  Comments here are associated with the test.
 --  For test case examples, see: http://tsqlt.org/user-guide/tsqlt-tutorial/
-CREATE PROCEDURE [DatactiveTest].[test Should return 3 when primary key not exists stored data]
+CREATE PROCEDURE [DatactiveTest].[test Should return 103 when primary key not exists stored data]
 AS
 BEGIN
 SET NOCOUNT ON
@@ -38,12 +38,13 @@ EXEC (@sql)
 
 EXEC @ret = Datactive.HashMatch @version = @version 
 
-EXEC tSQLt.AssertEquals @Expected = 3, -- sql_variant
+EXEC tSQLt.AssertEquals @Expected = 103, -- sql_variant
     @Actual = @ret, -- sql_variant
     @Message = N'PK validation failed' -- nvarchar(max)
 
   
 END;
+
 
 
 

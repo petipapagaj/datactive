@@ -4,7 +4,7 @@ SET ANSI_NULLS ON
 GO
 --  Comments here are associated with the test.
 --  For test case examples, see: http://tsqlt.org/user-guide/tsqlt-tutorial/
-CREATE PROCEDURE [DatactiveTest].[test Should return 1 when creating new dataversion with invalid version]
+CREATE PROCEDURE [DatactiveTest].[test Should return -1 when creating new dataversion with invalid version]
 AS
 BEGIN
 SET NOCOUNT ON
@@ -20,11 +20,12 @@ EXEC tSQLt.AssertEquals @Expected = 0, -- sql_variant
 
 EXEC @ret = Datactive.CreateDataVersion @version = NULL, @sha1 = NULL
 
-EXEC tSQLt.AssertEquals @Expected = 1, -- sql_variant
+EXEC tSQLt.AssertEquals @Expected = -1, -- sql_variant
     @Actual = @ret, -- sql_variant
     @Message = N'Parameter null validation failed' -- nvarchar(max)
 
 END;
+
 
 
 

@@ -65,6 +65,10 @@ SELECT @data = (SELECT h.Tab [@table], h.PK, h.md5
 	FROM @hashs AS h
 	FOR XML PATH('table'), ROOT('tables'))
 
+IF @data IS NULL 
+	RETURN 151 --internal error
 
+RETURN 0
 END
+
 GO
